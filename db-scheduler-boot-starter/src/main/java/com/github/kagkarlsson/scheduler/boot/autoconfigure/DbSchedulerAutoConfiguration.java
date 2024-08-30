@@ -75,7 +75,7 @@ public class DbSchedulerAutoConfiguration {
 
   public DbSchedulerAutoConfiguration(
       DbSchedulerProperties dbSchedulerProperties,
-      DataSource dataSource,
+      DataSource dbSchedulerdataSource,
       List<Task<?>> configuredTasks,
       List<SchedulerListener> schedulerListeners,
       List<ExecutionInterceptor> executionInterceptors) {
@@ -83,7 +83,7 @@ public class DbSchedulerAutoConfiguration {
         Objects.requireNonNull(
             dbSchedulerProperties, "Can't configure db-scheduler without required configuration");
     this.existingDataSource =
-        Objects.requireNonNull(dataSource, "An existing javax.sql.DataSource is required");
+        Objects.requireNonNull(dbSchedulerdataSource, "An existing javax.sql.DataSource is required");
     this.configuredTasks =
         Objects.requireNonNull(configuredTasks, "At least one Task must be configured");
     this.schedulerListeners = schedulerListeners;
